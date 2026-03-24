@@ -12,6 +12,7 @@ export interface Channel {
   metadata: string
   last_sync_at: string | null
   last_sync_status: string
+  last_sync_error?: string
   conversation_count: number
   created_at: string
 }
