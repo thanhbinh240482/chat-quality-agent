@@ -2,35 +2,35 @@
 
 ## v2026.03.26
 
-### Tinh nang moi
-- **Thong bao cap nhat**: Banner thong bao khi co phien ban moi + changelog + huong dan update
-- **Nut Dung job**: Co the dung job dang chay tu giao dien (#7)
-- **Docs + Version**: Hien thi o sidebar, truy cap nhanh tai lieu va changelog
+### Tính năng mới
+- **Thông báo cập nhật**: Banner thông báo khi có phiên bản mới + changelog + hướng dẫn update
+- **Nút Dừng job**: Có thể dừng job đang chạy từ giao diện (#7)
+- **Docs + Version**: Hiển thị ở sidebar, truy cập nhanh tài liệu và changelog
 
-### Bug Fixes
-- **Job bi treo**: Fix infinite loop khi batchSize=0, them context cancellation check, check loi DB query (#7)
-- **Facebook token**: Fix loi "must be called with Page Access Token" — tu dong exchange User Token thanh Page Token (#12, #13, #14)
-- **Gemini models**: Thay gemini-2.0-flash (deprecated) bang gemini-2.5-flash/pro
-- **Lich chay**: Khong luu duoc "Lich chay" khi sua cong viec (#9)
-- **AI model**: Job detail hien dung AI model tu Settings global thay vi gia tri cu (#33)
-- **Ty gia**: Dashboard dung ty gia tu tenant settings thay vi hardcode 26000 VND (#23)
-- **Install script**: Fix bi treo tren Ubuntu do interactive prompt (#35)
-- **Anh trong danh gia**: Hien thi anh/sticker/file trong "Dien bien cuoc chat" + lightbox zoom (#39)
+### Sửa lỗi
+- **Job bị treo**: Fix infinite loop khi batchSize=0, thêm context cancellation check, check lỗi DB query (#7)
+- **Facebook token**: Fix lỗi "must be called with Page Access Token" — tự động exchange User Token thành Page Token (#12, #13, #14)
+- **Gemini models**: Thay gemini-2.0-flash (deprecated) bằng gemini-2.5-flash/pro
+- **Lịch chạy**: Không lưu được "Lịch chạy" khi sửa công việc (#9)
+- **AI model**: Job detail hiện đúng AI model từ Settings global thay vì giá trị cũ (#33)
+- **Tỷ giá**: Dashboard dùng tỷ giá từ tenant settings thay vì hardcode 26000 VND (#23)
+- **Install script**: Fix bị treo trên Ubuntu do interactive prompt (#35)
+- **Ảnh trong đánh giá**: Hiển thị ảnh/sticker/file trong "Diễn biến cuộc chat" + lightbox zoom (#39)
 
-### Bao mat
-- Them security log khi tu choi truy cap file (IDOR fix)
-- IDOR: Kiem tra tenant ownership khi serve file (#22)
-- Token refresh: Fix race condition gay logout bat ngo (#26)
+### Bảo mật
+- Thêm security log khi từ chối truy cập file (IDOR fix)
+- IDOR: Kiểm tra tenant ownership khi serve file (#22)
+- Token refresh: Fix race condition gây logout bất ngờ (#26)
 - OAuth state URL-encoded (#29)
-- Goroutine timeout cho TriggerJob va TestRunJob (#30, #31)
-- Gioi han per_page max 100 tranh DB exhaustion (#32)
-- Infinite polling: Frontend tu dung poll sau timeout (#27, #28)
+- Goroutine timeout cho TriggerJob và TestRunJob (#30, #31)
+- Giới hạn per_page max 100 tránh DB exhaustion (#32)
+- Infinite polling: Frontend tự dừng poll sau timeout (#27, #28)
 
-### Documentation
-- Sua huong dan lay Telegram Group ID — dung Telegram Web (#36)
-- Them huong dan chay localhost (Zalo OA ho tro callback localhost) (#34)
-- Sua docs Zalo OA: localhost khong can SSL (#37)
-- Don gian hoa cai dat Watchtower — 1 lenh curl thay vi sua YAML thu cong
+### Tài liệu
+- Sửa hướng dẫn lấy Telegram Group ID — dùng Telegram Web (#36)
+- Thêm hướng dẫn chạy localhost (Zalo OA hỗ trợ callback localhost) (#34)
+- Sửa docs Zalo OA: localhost không cần SSL (#37)
+- Đơn giản hóa cài đặt Watchtower — 1 lệnh curl thay vì sửa YAML thủ công
 
 ---
 
