@@ -1,6 +1,7 @@
 package api
 
 import (
+	"log"
 	"net/http"
 	"path/filepath"
 	"strings"
@@ -66,6 +67,7 @@ func SetupRouter(cfg *config.Config) *gin.Engine {
 		var count int64
 		db.DB.Model(&models.UserTenant{}).Where("user_id = ? AND tenant_id = ?", userID, fileTenantID).Count(&count)
 		if count == 0 {
+			log.Printf("[security] tenant access denied: user=%s tenant=%s ip=%s path=%s", userID, fileTenantID, c.ClientIP(), fp)
 			c.JSON(http.StatusForbidden, gin.H{"error": "tenant_access_denied"})
 			return
 		}
