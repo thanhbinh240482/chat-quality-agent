@@ -258,7 +258,7 @@ const theme = useTheme()
 const { mdAndUp } = useDisplay()
 const { t } = useI18n()
 
-const drawer = ref(true)
+const drawer = ref(mdAndUp.value)
 const rail = ref(false)
 const isDark = computed(() => theme.global.current.value.dark)
 const isRail = computed(() => mdAndUp.value && rail.value)
