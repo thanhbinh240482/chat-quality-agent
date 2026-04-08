@@ -24,7 +24,7 @@ services:
     container_name: cqa-app
     restart: unless-stopped
     expose:
-      - "9090"
+      - "8080"
     env_file:
       - .env
     environment:
