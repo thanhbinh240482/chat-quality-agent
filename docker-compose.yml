@@ -8,8 +8,8 @@ services:
     container_name: cqa-nginx
     restart: unless-stopped
     ports:
-      - "8081:80"
-      - "8443:443"
+      - "9091:80"
+      - "9443:443"
     environment:
       - LEGO_DOMAIN=${LEGO_DOMAIN:-}
       - LEGO_EMAIL=${LEGO_EMAIL:-}
@@ -24,7 +24,7 @@ services:
     container_name: cqa-app
     restart: unless-stopped
     expose:
-      - "8085"
+      - "9090"
     env_file:
       - .env
     environment:
