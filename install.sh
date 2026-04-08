@@ -164,7 +164,7 @@ else
 
   cat > .env <<EOF
 # Server
-SERVER_PORT=8080
+SERVER_PORT=8082
 SERVER_HOST=0.0.0.0
 APP_ENV=production
 
