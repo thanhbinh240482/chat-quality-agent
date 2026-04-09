@@ -11,7 +11,7 @@ services:
       - .env
     environment:
       - APP_ENV=production
-      - DB_HOST=db
+      - DB_HOST=cqa-db
       - DB_PORT=3306
       - TZ=Asia/Ho_Chi_Minh
     depends_on:
