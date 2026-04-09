@@ -1,9 +1,27 @@
 version: "3.8"
 
 services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.nginx
+    container_name: cqa-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - LEGO_DOMAIN=${LEGO_DOMAIN:-}
+      - LEGO_EMAIL=${LEGO_EMAIL:-}
+    volumes:
+      - lego_certs:/etc/lego
+      - lego_webroot:/var/www/acme
+    depends_on:
+      - app
+
   app:
     build: .
-    container_name: $(openssl rand -hex 16)
+    container_name: cqa-app
     restart: unless-stopped
     expose:
       - "8080"
@@ -11,11 +29,11 @@ services:
       - .env
     environment:
       - APP_ENV=production
-      - DB_HOST=db2
+      - DB_HOST=db
       - DB_PORT=3306
       - TZ=Asia/Ho_Chi_Minh
     depends_on:
-      db2:
+      db:
         condition: service_healthy
     volumes:
       - file_storage:/var/lib/cqa/files
@@ -24,9 +42,9 @@ services:
     security_opt:
       - no-new-privileges:true
 
-  db2:
+  db:
     image: mysql:8.0
-    container_name: $(openssl rand -hex 16)
+    container_name: cqa-db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
