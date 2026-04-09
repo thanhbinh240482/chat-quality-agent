@@ -1,25 +1,7 @@
 version: "3.8"
 
 services:
-  nginx:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.nginx
-    container_name: cqa-nginx
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    environment:
-      - LEGO_DOMAIN=${LEGO_DOMAIN:-}
-      - LEGO_EMAIL=${LEGO_EMAIL:-}
-    volumes:
-      - lego_certs:/etc/lego
-      - lego_webroot:/var/www/acme
-    depends_on:
-      - app
-
-  app:
+   app:
     build: .
     container_name: cqa-app
     restart: unless-stopped
