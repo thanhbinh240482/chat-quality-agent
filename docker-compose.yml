@@ -11,11 +11,11 @@ services:
       - .env
     environment:
       - APP_ENV=production
-      - DB_HOST=dbxx
+      - DB_HOST=db2
       - DB_PORT=3306
       - TZ=Asia/Ho_Chi_Minh
     depends_on:
-      dbxx:
+      db2:
         condition: service_healthy
     volumes:
       - file_storage:/var/lib/cqa/files
@@ -24,7 +24,7 @@ services:
     security_opt:
       - no-new-privileges:true
 
-  dbxx:
+  db2:
     image: mysql:8.0
     container_name: $(openssl rand -hex 16)
     restart: unless-stopped
