@@ -29,6 +29,6 @@ COPY --from=frontend-builder /app/frontend/dist /app/static
 
 RUN mkdir -p /var/lib/cqa/files
 
-EXPOSE 8082
+EXPOSE 8080
 
 ENTRYPOINT ["/app/cqa-server"]
