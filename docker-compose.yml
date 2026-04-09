@@ -3,7 +3,7 @@ version: "3.8"
 services:
   app:
     build: .
-    container_name: cqa-app
+    container_name: $(openssl rand -hex 16)
     restart: unless-stopped
     expose:
       - "8080"
@@ -26,7 +26,7 @@ services:
 
   dbxx:
     image: mysql:8.0
-    container_name: cqa-db
+    container_name: $(openssl rand -hex 16)
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
